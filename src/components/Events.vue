@@ -3,7 +3,10 @@
 
 <script>
 export default {
- name: "Events"
+ name: "Events",
+ data () {
+      return {}
+    }
 }
 </script>
 

@@ -1,9 +1,10 @@
 <template>
+  
 </template>
 
 <script>
 export default {
- name: "Favorites",
+ name: "EventCard",
  data () {
       return {}
     }

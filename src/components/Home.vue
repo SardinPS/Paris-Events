@@ -1,12 +1,17 @@
 <template>
-
+  <EventCard />
 </template>
 
 <script>
+import EventCard from './EventCard'
+
 export default {
   name: "Home",
   data() {
     return {};
+  },
+  components: {
+    EventCard
   }
 };
 </script>
