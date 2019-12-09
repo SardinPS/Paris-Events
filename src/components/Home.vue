@@ -1,19 +1,17 @@
 <template>
-  <EventCard />
+
 </template>
 
 <script>
-import EventCard from './EventCard'
-
 export default {
   name: "Home",
   data() {
-    return {};
-  },
-  components: {
-    EventCard
+    return {
+     
+    };
   }
 };
+
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
