@@ -10,7 +10,7 @@
       <p class="card-text">{{ event.record.fields.date_start }}</p>
     </div>
     <div class="card-body">
-      <p class="card-text">{{ event.record.fields.description | shortenText }}</p>
+      <p class="card-text">{{ event.record.fields.description | removeTags | shortenText  }}</p>
     </div>
   </div>
 </template>
@@ -28,6 +28,9 @@ export default {
     }
   },
   filters: {
+    removeTags : function(value) {
+      return value.replace(/<[^>]*>/g, '');
+    },
     shortenText: function(value) {
       const shorten = (str, len) => str.substring(0, (str + ' ').lastIndexOf(' ', len));
        return shorten(value, 300) + '...';
