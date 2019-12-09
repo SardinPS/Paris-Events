@@ -27,11 +27,6 @@ export default {
         console.log(eventList)
       });
   },
-  computed: {
-      Crossing: function() {
-        return this.event.records;
-      }
-    }
 }
 </script>
 

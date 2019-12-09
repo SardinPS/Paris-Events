@@ -15,4 +15,9 @@ export default {
             .catch(errorHandler)
            
     },
+    fetchOne: function (id) {
+        return axios.get(`${API_ENDPOINT}que-faire-a-paris-/records/${id}`)
+            .then(res => res.data)
+            .catch(errorHandler)
+    },
 }

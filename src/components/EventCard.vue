@@ -11,6 +11,7 @@
     </div>
     <div class="card-body">
       <p class="card-text">{{ event.record.fields.description | removeTags | shortenText }}</p>
+      <router-link :to ="`/Event/${event.record.id}`">Voir en détail</router-link>
     </div>
   </div>
 </template>
@@ -30,7 +31,7 @@ export default {
   filters: {
     formateDate: function(value) {
       var localDate = new Date(value);
-      var options = {weekday: "long", year: "numeric", month: "long", day: "numeric", hour: "numeric", minute: "numeric"};
+      var options = { weekday: "long", year: "numeric", month: "long", day: "numeric", hour: "numeric", minute: "numeric"};
       return localDate.toLocaleString('fr-FR', options, { timeZone: 'UTC'});
     },
     removeTags: function(value) {

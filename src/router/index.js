@@ -34,6 +34,6 @@ export default new Router({
       path: '/EventCard',
       name: 'EventCard',
       component: EventCard
-    }
+    },
   ]
 })
