@@ -7,10 +7,10 @@
     />
     <div class="card-body">
       <h5 class="card-title">{{ event.record.fields.title }}</h5>
-      <p class="card-text">{{ event.record.fields.date_start }}</p>
+      <p class="card-text">À partir du {{ event.record.fields.date_start | formateDate }}</p>
     </div>
     <div class="card-body">
-      <p class="card-text">{{ event.record.fields.description | removeTags | shortenText  }}</p>
+      <p class="card-text">{{ event.record.fields.description | removeTags | shortenText }}</p>
     </div>
   </div>
 </template>
@@ -28,13 +28,19 @@ export default {
     }
   },
   filters: {
-    removeTags : function(value) {
-      return value.replace(/<[^>]*>/g, '');
+    formateDate: function(value) {
+      var localDate = new Date(value);
+      var options = {weekday: "long", year: "numeric", month: "long", day: "numeric", hour: "numeric", minute: "numeric"};
+      return localDate.toLocaleString('fr-FR', options, { timeZone: 'UTC'});
+    },
+    removeTags: function(value) {
+      return value.replace(/<[^>]*>/g, "");
     },
     shortenText: function(value) {
-      const shorten = (str, len) => str.substring(0, (str + ' ').lastIndexOf(' ', len));
-       return shorten(value, 300) + '...';
-    },
+      const shorten = (str, len) =>
+        str.substring(0, (str + " ").lastIndexOf(" ", len));
+      return shorten(value, 300) + " ...";
+    }
   }
 };
 </script>
