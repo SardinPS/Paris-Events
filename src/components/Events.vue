@@ -24,7 +24,6 @@ export default {
       .fetchAll()
       .then(eventList => {
         this.eventList = eventList.records;
-        console.log(eventList)
       });
   },
 }

@@ -5,6 +5,7 @@ import Events from '@/components/Events'
 import Favorites from '@/components/Favorites'
 import Navbar from '@/components/Navbar'
 import EventCard from '@/components/EventCard'
+import Event from '@/components/Event'
 
 Vue.use(Router)
 
@@ -35,5 +36,10 @@ export default new Router({
       name: 'EventCard',
       component: EventCard
     },
+    {
+      path: '/Event/:id',
+      name: 'Event',
+      component: Event,
+    }
   ]
 })

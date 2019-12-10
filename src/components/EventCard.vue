@@ -1,5 +1,5 @@
 <template>
-  <div class="card" style="width: 25%;">
+  <div class="card" style="width: 30%;">
     <img
       :src="event.record.fields.cover_url"
       class="card-img-top"
@@ -11,7 +11,8 @@
     </div>
     <div class="card-body">
       <p class="card-text">{{ event.record.fields.description | removeTags | shortenText }}</p>
-      <router-link :to ="`/Event/${event.record.id}`">Voir en détail</router-link>
+      <router-link :to ="`/Event/${event.record.id}`" class="card-link">Voir en détail</router-link>
+      <a href="#" class="card-link">Ajouter au favoris</a>
     </div>
   </div>
 </template>
