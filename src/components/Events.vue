@@ -22,7 +22,7 @@ export default {
   created : function() {
     DBservices
       .fetchAll()
-      .then(eventList => {
+      .then(eventList=> {
         this.eventList = eventList.records;
       });
   },

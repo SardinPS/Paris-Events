@@ -1,6 +1,6 @@
 <template>
   <div class="card-body">
-    <h5 class="card-title">{{ event.tags }}</h5>
+    <h5 class="card-title">{{ event.title }}</h5>
   </div>
 </template>
 
@@ -11,7 +11,9 @@ export default {
   name: "Event",
   data: function() {
     return {
-      event: ''
+      event: [
+
+      ]
     }
   },
   components: {
@@ -21,7 +23,6 @@ export default {
     DBservices.fetchOne(this.$route.params.id).then(event => {
       this.event = event.records;
       this.event = event.record.fields;
-      console.log(this.event)
     });
   }
 };

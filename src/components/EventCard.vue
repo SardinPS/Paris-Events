@@ -1,5 +1,5 @@
 <template>
-  <div class="card" style="width: 30%;">
+  <div class="card" style="width: 30%;" :id="`${event.record.id}`">
     <img
       :src="event.record.fields.cover_url"
       class="card-img-top"
@@ -11,8 +11,13 @@
     </div>
     <div class="card-body">
       <p class="card-text">{{ event.record.fields.description | removeTags | shortenText }}</p>
-      <router-link :to ="`/Event/${event.record.id}`" class="card-link">Voir en détail</router-link>
-      <a href="#" class="card-link">Ajouter au favoris</a>
+      <router-link :to="`/Event/${event.record.id}`" class="card-link">Voir en détail</router-link>
+      <a
+        href="#"
+        class="card-link"
+        id="favorites"
+        v-on:click.prevent="Favorites"
+      >Ajouter aux favoris</a>
     </div>
   </div>
 </template>
@@ -43,6 +48,19 @@ export default {
         str.substring(0, (str + " ").lastIndexOf(" ", len));
       return shorten(value, 300) + " ...";
     }
+  },
+  methods: {
+    Favorites: function(){
+     let favorites = document.getElementById("favorites");
+      if (localStorage.getItem(this.event.record.id)){
+        localStorage.removeItem(this.event.record.id);
+        favorites.innerHTML = "Ajouter aux favoris";
+      }
+      else{
+        localStorage.setItem(this.event.record.id, this.event.record.id);
+        favorites.innerHTML = "Retirer des favoris";
+      }
+    },
   }
 };
 </script>
