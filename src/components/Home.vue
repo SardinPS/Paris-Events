@@ -1,6 +1,8 @@
 <template>
-  <div class="container">
-    <EventCard :event="event" v-if="event" />
+  <div class="app">
+    <div class="container">
+      <EventCard :event="event" v-if="event" />
+    </div>
   </div>
 </template>
 
@@ -42,5 +44,6 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+
 </style>

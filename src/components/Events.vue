@@ -1,7 +1,8 @@
 <template>
   <div class="container">
-    <EventCard v-for="event in eventList" :event="event" :key="event.id" />
-  </div>
+      <EventCard v-for="event in eventList" :event="event" :key="event.id" />
+    </div>
+
 </template>
 
 <script>
@@ -13,6 +14,7 @@ export default {
   data() {
     return {
       eventList: null,
+
     };
   },
   components: {
@@ -26,5 +28,5 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 </style>
