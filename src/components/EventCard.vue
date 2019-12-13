@@ -1,5 +1,5 @@
 <template>
-  <div class="card" style="width: 30%;" :id="`${event.record.id}`">
+  <div class="card" style="width: 30%;">
     <img
       :src="event.record.fields.cover_url"
       class="card-img-top"
@@ -41,7 +41,7 @@ export default {
       return localDate.toLocaleString('fr-FR', options, { timeZone: 'UTC'});
     },
     removeTags: function(value) {
-      return value.replace(/<[^>]*>/g, "");
+       return value.replace(/<[^>]*>/g, " ");
     },
     shortenText: function(value) {
       const shorten = (str, len) =>
@@ -55,6 +55,7 @@ export default {
       if (localStorage.getItem(this.event.record.id)){
         localStorage.removeItem(this.event.record.id);
         favorites.innerHTML = "Ajouter aux favoris";
+        location.reload();
       }
       else{
         localStorage.setItem(this.event.record.id, this.event.record.id);

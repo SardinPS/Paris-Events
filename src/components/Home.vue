@@ -24,14 +24,13 @@ export default {
       var array = [];
       var index = 0;
       for (let i = 0; i < this.eventList.length; i++) {
-        let synchronized = this.eventList[i].record.fields.cover.last_synchronized;
-        synchronized = synchronized + ' index: ' + index++;
+        let synchronized = this.eventList[i].record.fields.updated_at;
+        synchronized = synchronized + " index: " + index++;
         array.push(synchronized);
       }
-        array.sort().reverse();
-        let lastUpdated = (array[0].match(/\d+$/)[0]);
-        
-        this.event = this.eventList[lastUpdated];
+      array.sort().reverse();
+      let lastUpdated = array[0].match(/\d+$/)[0];
+      this.event = this.eventList[lastUpdated];
     }
   },
   created: function() {
