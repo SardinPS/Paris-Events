@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <EventCard v-for="event in eventList" :event="event" :key="event.id" />
-    <p v-if="this.eventList.length === 0">Aucun favoris trouvé</p>
+    <h1 v-if="this.eventList.length === 0">Aucun favoris trouvé</h1>
   </div>
 </template>
 
@@ -44,4 +44,8 @@ export default {
 </script>
 
 <style scoped>
+h1{
+  margin-bottom: 25px;
+  font-family: 'Montserrat', sans-serif
+}
 </style>

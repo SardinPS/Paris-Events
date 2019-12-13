@@ -1,5 +1,6 @@
 <template>
   <div class="container">
+    <h1>Retrouver ici la liste de touts les évenements parisiens à venir</h1>
       <EventCard v-for="event in eventList" :event="event" :key="event.id" />
     </div>
 
@@ -29,4 +30,7 @@ export default {
 </script>
 
 <style scoped>
+h1{
+  font-family: 'Montserrat', sans-serif;
+}
 </style>

@@ -1,6 +1,8 @@
 <template>
   <div class="app">
     <div class="container">
+      <h1>Bienvenue sur Paris Events</h1>
+      <h2>Dernier événements ajouté</h2>
       <EventCard :event="event" v-if="event" />
     </div>
   </div>
@@ -45,5 +47,11 @@ export default {
 </script>
 
 <style scoped>
-
+h1,h2{
+  font-family: 'Montserrat', sans-serif;
+  margin: 20px 0;
+}
+.cards_item{
+  display: flex;
+}
 </style>

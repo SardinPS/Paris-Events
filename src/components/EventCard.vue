@@ -1,7 +1,6 @@
 <template>
-  <div>
-    <li class="cards_item">
-      <div class="card">
+  <div class="cards_item">
+      <div class="card" :id="event.record.id">
         <div class="card_image">
           <img :src="event.record.fields.cover_url" :alt="`Photo de ${event.record.fields.title}`" />
         </div>
@@ -19,7 +18,6 @@
           </div>
         </div>
       </div>
-    </li>
   </div>
 </template>
 
@@ -62,11 +60,9 @@ export default {
       let favorites = document.getElementById("favorites");
       if (localStorage.getItem(this.event.record.id)) {
         localStorage.removeItem(this.event.record.id);
-        favorites.innerHTML = "Ajouter aux favoris";
         location.reload();
       } else {
         localStorage.setItem(this.event.record.id, this.event.record.id);
-        favorites.innerHTML = "Retirer des favoris";
       }
     }
   }
@@ -107,11 +103,11 @@ img {
 }
 
 .cards_item {
-  display: flex;
+  display: inline-flex;
   padding: 1rem;
 }
 
-@media (min-width: 40rem) {
+@media (min-width: 55rem) {
   .cards_item {
     width: 50%;
   }
